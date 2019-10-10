@@ -13,7 +13,7 @@
 Some basic Git commands are:
 
 ```
-$ git clone https://github.com/mohamedsamara/Redux-Next-App.git
+$ git clone https://github.com/mohamedsamara/redux-next-app.git
 $ cd project
 $ npm install
 
