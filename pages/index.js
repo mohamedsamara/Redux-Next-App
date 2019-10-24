@@ -1,2 +1,5 @@
-const App = () => <div>Redux Next Application</div>;
-export default App;
+import Home from './home';
+
+const Index = () => <Home />;
+
+export default Index;
