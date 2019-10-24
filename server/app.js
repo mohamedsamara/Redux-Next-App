@@ -3,6 +3,8 @@ const express = require('express');
 const next = require('next');
 const mongoose = require('mongoose');
 
+const routes = require('./routes');
+
 const port = parseInt(process.env.PORT, 10) || 3000;
 const dev = process.env.NODE_ENV !== 'production';
 const mongoURI = process.env.MONGO_URI;
@@ -19,6 +21,10 @@ const handle = app.getRequestHandler();
 app.prepare().then(() => {
   const server = express();
 
+  server.use(express.urlencoded({ extended: true }));
+  server.use(express.json());
+
+  server.use('/api', routes);
   server.all('*', (req, res) => {
     return handle(req, res);
   });

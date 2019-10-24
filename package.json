@@ -2,11 +2,11 @@
   "name": "redux-next-app",
   "version": "1.0.0",
   "description": "Redux Next Application",
-  "main": "index.js",
+  "main": "server/app.js",
   "scripts": {
-    "dev": "node server.js",
+    "dev": "node server/app.js",
     "build": "next build",
-    "start": "cross-env NODE_ENV=production node server.js",
+    "start": "cross-env NODE_ENV=production node server/app.js",
     "lint": "eslint *.js && eslint pages --ignore-path .eslintignore",
     "lint:fix": "eslint *.js --fix && eslint pages --fix --ignore-path .eslintignore",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -40,6 +40,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
+    "cross-env": "^6.0.3",
     "eslint": "^6.5.1",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.4.0",
