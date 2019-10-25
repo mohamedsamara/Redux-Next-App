@@ -27,6 +27,7 @@ const useStyles = makeStyles(() => ({
   },
   homeIcon: {
     marginRight: 10,
+    color: '#fff',
   },
   titleLink: {
     textDecoration: 'none',
@@ -52,7 +53,6 @@ const Header = () => {
           <HomeIcon
             className={classes.homeIcon}
             aria-label="menu"
-            color="inherit"
             edge="start"
           />
           <Typography variant="h6" className={classes.title}>
