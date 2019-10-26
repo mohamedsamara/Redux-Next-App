@@ -1,5 +1,7 @@
 import Home from './home';
 
+import { withRedux } from '../lib/redux';
+
 const Index = () => <Home />;
 
-export default Index;
+export default withRedux(Index);

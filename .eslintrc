@@ -23,6 +23,7 @@
     "arrow-parens": "off",
     "no-multiple-empty-lines": "off",
     "import/newline-after-import": "off",
+    "import/prefer-default-export": "off",
     "jsx-a11y/anchor-is-valid": "off",
     "react/jsx-wrap-multilines": "off",
     "react/button-has-type": "off",
