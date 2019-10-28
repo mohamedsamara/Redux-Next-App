@@ -7,10 +7,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import SvgIcon from '@material-ui/core/SvgIcon';
 
-import { useSelector } from 'react-redux';
-
-import { withRedux } from '../lib/redux';
-
 const useStyles = makeStyles(() => ({
   root: {
     flexGrow: 1,
@@ -49,7 +45,6 @@ const HomeIcon = props => {
 
 const Header = () => {
   const classes = useStyles();
-  const headerData = useSelector(state => state.header);
 
   return (
     <div className={classes.root}>
@@ -72,8 +67,8 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <Link href="/home">
-                <a>{headerData}</a>
+              <Link href="/todos">
+                <a>Todos</a>
               </Link>
             </li>
           </ul>
@@ -83,4 +78,4 @@ const Header = () => {
   );
 };
 
-export default withRedux(Header);
+export default Header;
