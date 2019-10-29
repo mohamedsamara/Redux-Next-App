@@ -6,6 +6,8 @@ import Head from '../components/Head';
 
 import { withRedux } from '../lib/redux';
 
+import { fetchTodos } from '../utils/actions/todo.action';
+
 const Todos = () => {
   const todos = useSelector(state => state.todo.todos);
 
@@ -27,10 +29,8 @@ Todos.getInitialProps = async ({ req, reduxStore }) => {
   const todosData = await response.json();
 
   const { dispatch } = reduxStore;
-  dispatch({
-    type: 'FETCH_TODOS',
-    payload: todosData,
-  });
+
+  dispatch(fetchTodos(todosData));
 };
 
 export default withRedux(Todos);
