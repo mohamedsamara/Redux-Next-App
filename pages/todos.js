@@ -1,5 +1,4 @@
 import { useSelector } from 'react-redux';
-import fetch from 'isomorphic-unfetch';
 
 import Layout from '../components/Layout';
 import Head from '../components/Head';
@@ -26,11 +25,11 @@ const Todos = () => {
 Todos.getInitialProps = async ({ req, reduxStore }) => {
   const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
   const response = await fetch(`${baseUrl}/api/todos`);
-  const todosData = await response.json();
+  const todos = await response.json();
 
   const { dispatch } = reduxStore;
 
-  dispatch(fetchTodos(todosData));
+  dispatch(fetchTodos(todos));
 };
 
 export default withRedux(Todos);

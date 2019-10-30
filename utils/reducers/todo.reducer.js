@@ -1,14 +1,17 @@
+import { FETCH_TODOS } from '../actionTypes/todo.types';
+
 const initialState = {
   todos: [],
 };
 
 const todoReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'FETCH_TODOS':
+    case FETCH_TODOS:
       return {
         ...state,
         todos: action.payload,
       };
+
     default:
       return state;
   }
