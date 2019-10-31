@@ -27,8 +27,9 @@ router.post('/todo/add', (req, res, next) => {
 
 router.put('/todo/complete/:id', (req, res, next) => {
   const query = { _id: req.params.id };
+
   const todo = {
-    isCompleted: req.body.value,
+    isCompleted: req.body.isCompleted,
   };
 
   Todo.updateOne(query, todo)
