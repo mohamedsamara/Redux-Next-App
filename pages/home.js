@@ -56,6 +56,12 @@ const Home = () => {
         />
         <Chip
           icon={<DoneIcon fontSize="small" />}
+          label="Redux Hooks"
+          color="secondary"
+          variant="outlined"
+        />
+        <Chip
+          icon={<DoneIcon fontSize="small" />}
           label="Express"
           color="secondary"
           variant="outlined"
