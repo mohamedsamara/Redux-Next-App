@@ -28,7 +28,6 @@ const Todos = () => {
   const dispatch = useDispatch();
 
   const classes = useStyles();
-  console.log('todos', todos);
 
   const handleAddTodo = itemValue => {
     dispatch(addTodoApi(itemValue));
