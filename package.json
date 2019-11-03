@@ -44,6 +44,7 @@
     "node-sass": "^4.13.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
+    "react-notification-system-redux": "^2.0.0",
     "react-redux": "^7.1.1",
     "react-redux-notify": "^4.2.1",
     "redux": "^4.0.4",

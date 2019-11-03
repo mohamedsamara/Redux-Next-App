@@ -4,8 +4,6 @@ import App from 'next/app';
 
 import { ThemeProvider } from '@material-ui/styles';
 
-import 'react-redux-notify/dist/ReactReduxNotify.css';
-
 import theme from '../utils/theme';
 
 class MyApp extends App {

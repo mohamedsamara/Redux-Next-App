@@ -1,5 +1,7 @@
 import fetch from 'isomorphic-unfetch';
 
+import { success, info } from 'react-notification-system-redux';
+
 import {
   FETCH_TODOS,
   ADD_TODO,
@@ -63,6 +65,14 @@ export const addTodoApi = itemValue => {
         type: ADD_TODO,
         payload: todo,
       });
+
+      const notificationOpts = {
+        message: 'Todo has been added successfully!',
+        position: 'tr',
+        autoDismiss: 1,
+      };
+
+      dispatch(success(notificationOpts));
     } catch (err) {
       console.error(err);
     }
@@ -71,8 +81,6 @@ export const addTodoApi = itemValue => {
 
 // delete todo api
 export const deleteTodoApi = (todoIndex, todoId) => {
-  console.log('delete', todoIndex, todoId);
-
   return async dispatch => {
     try {
       const settings = {
@@ -82,12 +90,20 @@ export const deleteTodoApi = (todoIndex, todoId) => {
       const response = await fetch(`/api/todo/delete/${todoId}`, settings);
       const todo = await response.json();
 
-      console.log('todo delete', todo);
-
       dispatch({
         type: DELETE_TODO,
         payload: todoIndex,
       });
+
+      const notificationOpts = {
+        message: 'Todo has been deleted successfully!',
+        position: 'tr',
+        autoDismiss: 1,
+      };
+
+      if (todo.ok === 1) {
+        dispatch(info(notificationOpts));
+      }
     } catch (err) {
       console.error(err);
     }
@@ -113,12 +129,22 @@ export const completeTodoApi = (todoId, itemValue) => {
       const response = await fetch(`/api/todo/complete/${todoId}`, settings);
       const todo = await response.json();
 
-      console.log(todo);
-
       dispatch({
         type: COMPLETE_TODO,
         payload: todoId,
       });
+
+      const notificationOpts = {
+        message: itemValue
+          ? 'Todo has been completed successfully!'
+          : 'Todo has been uncompleted successfully!',
+        position: 'tr',
+        autoDismiss: 1,
+      };
+
+      if (todo.ok === 1) {
+        dispatch(info(notificationOpts));
+      }
     } catch (err) {
       console.error(err);
     }
