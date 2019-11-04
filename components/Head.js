@@ -19,6 +19,7 @@ const Head = props => (
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
     />
+    <link rel="stylesheet" type="text/css" href="../static/nprogress.css" />
     <link rel="icon" type="image/ico" href="../static/favicon.ico" />
   </NextHead>
 );

@@ -6,11 +6,25 @@ import Container from '@material-ui/core/Container';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { makeStyles } from '@material-ui/core/styles';
 
+import Router from 'next/router';
+import NProgress from 'nprogress';
 import Notifications from 'react-notification-system-redux';
 
 import Header from './Header';
 
 import { withRedux } from '../lib/redux';
+
+NProgress.configure({ easing: 'ease', speed: 500, trickleSpeed: 200 });
+
+Router.onRouteChangeStart = () => {
+  NProgress.start();
+};
+Router.onRouteChangeComplete = () => {
+  NProgress.done();
+};
+Router.onRouteChangeError = () => {
+  NProgress.done();
+};
 
 const useStyles = makeStyles(() => ({
   root: {
