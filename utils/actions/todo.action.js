@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-unfetch';
 
-import { success, info } from 'react-notification-system-redux';
+import { success, info, error } from 'react-notification-system-redux';
 
 import {
   FETCH_TODOS,
@@ -36,7 +36,13 @@ export const fetchTodosApi = () => {
         payload: todos,
       });
     } catch (err) {
-      console.error(err);
+      const notificationOpts = {
+        message: `${err}`,
+        position: 'tr',
+        autoDismiss: 1,
+      };
+
+      dispatch(error(notificationOpts));
     }
   };
 };
@@ -74,7 +80,12 @@ export const addTodoApi = itemValue => {
 
       dispatch(success(notificationOpts));
     } catch (err) {
-      console.error(err);
+      const notificationOpts = {
+        message: `${err}`,
+        position: 'tr',
+        autoDismiss: 1,
+      };
+      dispatch(error(notificationOpts));
     }
   };
 };
@@ -105,7 +116,13 @@ export const deleteTodoApi = (todoIndex, todoId) => {
         dispatch(info(notificationOpts));
       }
     } catch (err) {
-      console.error(err);
+      const notificationOpts = {
+        message: `${err}`,
+        position: 'tr',
+        autoDismiss: 1,
+      };
+
+      dispatch(error(notificationOpts));
     }
   };
 };
@@ -146,7 +163,13 @@ export const completeTodoApi = (todoId, itemValue) => {
         dispatch(info(notificationOpts));
       }
     } catch (err) {
-      console.error(err);
+      const notificationOpts = {
+        message: `${err}`,
+        position: 'tr',
+        autoDismiss: 1,
+      };
+
+      dispatch(error(notificationOpts));
     }
   };
 };

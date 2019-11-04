@@ -5,16 +5,21 @@ const router = express.Router();
 const Todo = require('../models/todo');
 
 // read all tasks api
-router.get('/todos', (req, res, next) => {
+router.get('/todos', (req, res) => {
   Todo.find()
     .exec()
     .then(todo => {
       res.json(todo);
     })
-    .catch(err => next(err));
+    .catch(err => {
+      return res.status(400).json({
+        message: 'Your request could not be processed. Please try again.',
+        error: err,
+      });
+    });
 });
 
-router.post('/todo/add', (req, res, next) => {
+router.post('/todo/add', (req, res) => {
   const todo = new Todo({
     name: req.body.name,
     isCompleted: req.body.isCompleted,
@@ -22,10 +27,15 @@ router.post('/todo/add', (req, res, next) => {
   todo
     .save()
     .then(() => res.json(todo))
-    .catch(err => next(err));
+    .catch(err => {
+      return res.status(400).json({
+        message: 'Your request could not be processed. Please try again.',
+        error: err,
+      });
+    });
 });
 
-router.put('/todo/complete/:id', (req, res, next) => {
+router.put('/todo/complete/:id', (req, res) => {
   const query = { _id: req.params.id };
 
   const todo = {
@@ -35,14 +45,24 @@ router.put('/todo/complete/:id', (req, res, next) => {
   Todo.updateOne(query, todo)
     .exec()
     .then(newTodo => res.json(newTodo))
-    .catch(err => next(err));
+    .catch(err => {
+      return res.status(400).json({
+        message: 'Your request could not be processed. Please try again.',
+        error: err,
+      });
+    });
 });
 
-router.delete('/todo/delete/:id', (req, res, next) => {
+router.delete('/todo/delete/:id', (req, res) => {
   Todo.deleteOne({ _id: req.params.id })
     .exec()
     .then(todo => res.json(todo))
-    .catch(err => next(err));
+    .catch(err => {
+      return res.status(400).json({
+        message: 'Your request could not be processed. Please try again.',
+        error: err,
+      });
+    });
 });
 
 module.exports = router;
