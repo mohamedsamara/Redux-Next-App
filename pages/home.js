@@ -32,7 +32,10 @@ const Home = () => {
         <Typography variant="h5" component="h3">
           Todo Application.
         </Typography>
-        <Typography component="p">Redux Next Application</Typography>
+        <Typography component="p">
+          This is an example of using Next Js for React Server rendering
+          applications with Redux.
+        </Typography>
       </Paper>
 
       <div className={classes.chips}>

@@ -57,7 +57,7 @@ const Header = () => {
           />
           <Typography variant="h6" className={classes.title}>
             <Link href="/">
-              <a className={classes.titleLink}>Redux Application</a>
+              <a className={classes.titleLink}>Redux Next Application</a>
             </Link>
           </Typography>
           <ul className={classes.menuLinks}>
