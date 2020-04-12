@@ -7,7 +7,7 @@
   * Next is used for React server rendering
   * Redux to manage application's state  
   * React Hooks in functional components
-  * Material UI for react components
+  * Material UI for React components
 
 
 ## Install
