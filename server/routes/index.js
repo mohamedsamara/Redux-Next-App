@@ -22,7 +22,7 @@ router.get('/todos', (req, res) => {
 router.post('/todo/add', (req, res) => {
   const todo = new Todo({
     name: req.body.name,
-    isCompleted: req.body.isCompleted,
+    is_completed: req.body.isCompleted,
   });
   todo
     .save()
@@ -39,7 +39,7 @@ router.put('/todo/complete/:id', (req, res) => {
   const query = { _id: req.params.id };
 
   const todo = {
-    isCompleted: req.body.isCompleted,
+    is_completed: req.body.isCompleted,
   };
 
   Todo.updateOne(query, todo)

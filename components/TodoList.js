@@ -57,9 +57,9 @@ const TodoList = ({ todos, completeTodo, deleteTodo }) => {
               <FormControlLabel
                 control={
                   <Checkbox
-                    checked={todo.isCompleted}
+                    checked={todo.is_completed}
                     onChange={() => {
-                      completeTodo(todo._id, !todo.isCompleted);
+                      completeTodo(todo._id, !todo.is_completed);
                     }}
                     color="secondary"
                   />
