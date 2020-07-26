@@ -18,7 +18,6 @@ Some basic Git commands are:
 $ git clone https://github.com/mohamedsamara/redux-next-app.git
 $ cd project
 $ npm install
-
 ```
 
 
@@ -26,21 +25,18 @@ $ npm install
 
 ```
 $ npm run dev
-
 ```
 
 ## Run the application for production
 
 ```
 $ npm run start
-
 ```
 
 ## Run the code linter
 
 ```
 $ npm run lint:fix
-
 ```
 
 ## Languages & tools
